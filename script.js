@@ -124,3 +124,24 @@ allForms.forEach(form => {
         });
     });
 });
+
+
+function showForm(type) {
+    const payForm = document.getElementById('payment-form');
+    const loanForm = document.getElementById('loan-form');
+    const btnPay = document.getElementById('btn-pay');
+    const btnLoan = document.getElementById('btn-loan');
+
+    if (type === 'payment') {
+        payForm.style.display = 'block';
+        loanForm.style.display = 'none';
+        // Change les couleurs des boutons pour savoir lequel est actif
+        btnPay.style.background = '#00d2ff';
+        btnLoan.style.background = 'rgba(255,255,255,0.1)';
+    } else {
+        payForm.style.display = 'none';
+        loanForm.style.display = 'block';
+        btnPay.style.background = 'rgba(255,255,255,0.1)';
+        btnLoan.style.background = '#00d2ff';
+    }
+}
