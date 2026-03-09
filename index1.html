@@ -75,7 +75,7 @@
                     <div class="pay-btn mtn" onclick="initiatePay('MTN')">
                         <i class="fa-solid fa-phone"></i>
                         <h2>MTN Money</h2>
-                        <p><br>NUM: <b> 068424624</b>  </p>
+                        <p><br>NUM: <b style="color: black; text-decoration: none;"> 068424624</b>  </p>
                     </div>
                     <div class="pay-btn airtel" onclick="initiatePay('Airtel')">
                         <i class="fa-solid fa-mobile-screen"></i>
@@ -86,14 +86,45 @@
             </section>
             <!-- je dois relier cette section a fromspre et aussi quand on click sur envoyer le message par et se tout redeviens nouveau -->
 
-            <section id="loan" class="page">
-                <div class="header-main"><h1>Besoin d'aide ?</h1></div>
-                <div class="card glass loan-container">
-                    <h2>Demander une avance</h2>
-                    <textarea id="loanTxt" placeholder="Expliquez votre situation..."></textarea>
-                    <button class="btn-main" onclick="sendLoan()">Envoyer la demande</button>
-                </div>
-            </section>
+<section id="loan" class="page">
+    <div class="header-main"><h1>Espace Financier</h1></div>
+    
+    <div class="card glass loan-container">
+        <div class="form-tabs">
+            <button class="tab-btn active" onclick="switchForm('payment')">Paiement</button>
+            <button class="tab-btn" onclick="switchForm('loan')">Prêt</button>
+        </div>
+<form id="payment-form" class="transaction-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="8ced0072-2b9f-4238-b474-663de19e1aac">
+    <input type="hidden" name="subject" value="Nouveau Paiement Wiza">
+
+    <h2>Confirmer mon versement</h2>
+    <div class="input-group">
+        <i class="fas fa-fingerprint"></i>
+        <input type="text" name="transaction_id" placeholder="ID de transaction (MTN/Airtel)" required>
+    </div>
+    <div class="input-group">
+        <i class="fas fa-calendar-alt"></i>
+        <input type="date" name="date_paiement" required>
+    </div>
+    <button type="submit" class="btn-main">Enregistrer le paiement</button>
+</form>
+
+<hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 20px 0;">
+
+<form id="loan-form" class="transaction-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="8ced0072-2b9f-4238-b474-663de19e1aac">
+    <input type="hidden" name="subject" value="Demande de Prêt Wiza">
+
+    <h2>Demander une avance</h2>
+    <div class="input-group">
+        <i class="fas fa-hand-holding-usd"></i>
+        <textarea name="message_pret" placeholder="Expliquez votre situation et le montant souhaité..." required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; padding: 10px;"></textarea>
+    </div>
+    <button type="submit" class="btn-main">Envoyer la demande</button>
+</form>
+    </div>
+</section>
 
         </main>
     </div>

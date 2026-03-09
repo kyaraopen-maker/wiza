@@ -42,7 +42,7 @@ function initiatePay(operator) {
 
     if (operator === 'MTN') {
         // Encode le # par %23 pour que le téléphone l'affiche bien
-        ussdCode = "*105*1%23"; 
+        ussdCode = "*105%23"; 
     } else if (operator === 'Airtel') {
         ussdCode = "*128%23";
     }
@@ -59,3 +59,68 @@ function sendLoan() {
 }
 
 window.onload = loadMembres;
+
+
+// Fonction pour changer de formulaire
+function switchForm(type) {
+    const payForm = document.getElementById('payment-form');
+    const loanForm = document.getElementById('loan-form');
+    const tabs = document.querySelectorAll('.tab-btn');
+
+    if (type === 'payment') {
+        payForm.style.display = 'block';
+        loanForm.style.display = 'none';
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+    } else {
+        payForm.style.display = 'none';
+        loanForm.style.display = 'block';
+        tabs[0].classList.remove('active');
+        tabs[1].classList.add('active');
+    }
+}
+
+// Ce script gère TOUS les formulaires avec la classe .transaction-form ou .glass-form
+const allForms = document.querySelectorAll('form');
+
+allForms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Empêche la redirection vers la page verte
+
+        const btn = form.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Envoi en cours...";
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                // L'alerte JS avec ton message exact
+                alert("Votre demande a été envoyée avec succès ! Vous allez recevoir une note sur votre email.");
+                
+                // Rafraîchit la page pour vider les champs (Nom, ID transaction, etc.)
+                window.location.reload(); 
+            } else {
+                alert("Erreur lors de l'envoi. Vérifiez votre connexion.");
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        })
+        .catch(error => {
+            alert("Une erreur est survenue.");
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    });
+});

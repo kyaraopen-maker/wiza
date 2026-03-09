@@ -124,7 +124,20 @@ h2 {
 .footer-text a {
     color: var(--primary);
     text-decoration: none;
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /* Optimisation pour Mobile */
@@ -160,3 +173,8 @@ h2 {
         padding: 20px 0;
     }
 }
+
+
+
+
+
