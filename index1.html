@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiza Premium | Tontine Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./asset/J.png">
+    <link rel="apple-touch-icon" href="./asset/J.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="blob-bg"></div>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">W</div>
+                <span>WIZA.</span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Accueil</button>
+                <button class="nav-btn" onclick="showSection('members')"><i class="fa-solid fa-users"></i> Membres</button>
+                <button class="nav-btn" onclick="showSection('pay')"><i class="fa-solid fa-credit-card"></i> Paiements</button>
+                <button class="nav-btn" onclick="showSection('loan')"><i class="fa-solid fa-hand-holding-heart"></i> Prêts</button>
+            </nav>
+            <div class="sidebar-footer">HIRAM Architech Web</div>
+        </aside>
+
+        <main class="content">
+            
+            <section id="home" class="page active">
+                <div class="header-main">
+                    <h1>Tableau de bord <span>UTILISATEUR</span></h1>
+                    <div class="date-now">Mars 2026</div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="card card-gradient">
+                        <span class="label">Caisse Totale</span>
+                        <h2 class="amount">60,000 <span>FCFA</span></h2>
+                        <div class="progress-bar"><div class="fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="mini-stats">
+                        <div class="card-mini"><i class="fa-solid fa-chart-line"></i> <div><span>Collecté</span><p>12,000</p></div></div>
+                        <div class="card-mini"><i class="fa-solid fa-clock"></i> <div><span>Attente</span><p>12/15</p></div></div>
+                    </div>
+                </div>
+
+                <div class="double-grid">
+                    <div class="card glass">
+                        <h3>Activité en direct</h3>
+                        <div class="log-item"><div class="dot green"></div><p>HIRAM Web a payé 4,000 <span>14:20</span></p></div>
+                        <div class="log-item"><div class="dot orange"></div><p>Membre #05 demande prêt <span>Hier</span></p></div>
+                    </div>
+                    <div class="card glass next-gain">
+                        <h3>Prochain Gain</h3>
+                        <div class="user-chip">
+                            <div class="avatar">J</div>
+                            <div><strong>Jean Dupont</strong><p>Reçoit 55,000 FCFA</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="members" class="page">
+                <div class="header-main"><h1>Nos <span>15 Membres</span></h1></div>
+                <div class="members-grid" id="members-list">
+                    </div>
+            </section>
+
+            <section id="pay" class="page">
+                <div class="header-main"><h1>Mode de dépôt</h1></div>
+                <div class="pay-grid">
+                    <div class="pay-btn mtn" onclick="initiatePay('MTN')">
+                        <i class="fa-solid fa-phone"></i>
+                        <h2>MTN Money</h2>
+                        <p><br>NUM: <b> 068424624</b>  </p>
+                    </div>
+                    <div class="pay-btn airtel" onclick="initiatePay('Airtel')">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <h2>Airtel Money</h2>
+                        <p>Composer <b>*128#</b></p>
+                    </div>
+                </div>
+            </section>
+            <!-- je dois relier cette section a fromspre et aussi quand on click sur envoyer le message par et se tout redeviens nouveau -->
+
+            <section id="loan" class="page">
+                <div class="header-main"><h1>Besoin d'aide ?</h1></div>
+                <div class="card glass loan-container">
+                    <h2>Demander une avance</h2>
+                    <textarea id="loanTxt" placeholder="Expliquez votre situation..."></textarea>
+                    <button class="btn-main" onclick="sendLoan()">Envoyer la demande</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

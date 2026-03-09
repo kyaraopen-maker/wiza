@@ -3,100 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiza Premium | Tontine Hub</title>
+    <title>| Wiza-inscription</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="./asset/J.png">
     <link rel="apple-touch-icon" href="./asset/J.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="./asset/J.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <!-- je dois poser a ia comment faire pour tester mon backend comme en texte html  -->
+    
 </head>
 <body>
-    <div class="blob-bg"></div>
+<div class="container">
+<form  id="contact-form"  action="https://api.web3forms.com/submit" method="POST" class="glass-form">
+    <input type="hidden" name="access_key" value="8ced0072-2b9f-4238-b474-663de19e1aac">
 
-    <div class="app-shell">
-        <aside class="sidebar">
-            <div class="brand">
-                <div class="brand-icon">W</div>
-                <span>WIZA.</span>
-            </div>
-            <nav class="nav-links">
-                <button class="nav-btn active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Accueil</button>
-                <button class="nav-btn" onclick="showSection('members')"><i class="fa-solid fa-users"></i> Membres</button>
-                <button class="nav-btn" onclick="showSection('pay')"><i class="fa-solid fa-credit-card"></i> Paiements</button>
-                <button class="nav-btn" onclick="showSection('loan')"><i class="fa-solid fa-hand-holding-heart"></i> Prêts</button>
-            </nav>
-            <div class="sidebar-footer">HIRAM Architech Web</div>
-        </aside>
+    <h2>Créer un compte <span class="accent">Wiza</span></h2>
+    <p class="subtitle">Rejoignez l'élite financière en quelques clics.</p>
 
-        <main class="content">
-            
-            <section id="home" class="page active">
-                <div class="header-main">
-                    <h1>Tableau de bord, <span>UTILISATEUR</span></h1>
-                    <div class="date-now">Mars 2026</div>
-                </div>
-
-                <div class="stats-row">
-                    <div class="card card-gradient">
-                        <span class="label">Caisse Totale</span>
-                        <h2 class="amount">60,000 <span>FCFA</span></h2>
-                        <div class="progress-bar"><div class="fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="mini-stats">
-                        <div class="card-mini"><i class="fa-solid fa-chart-line"></i> <div><span>Collecté</span><p>12,000</p></div></div>
-                        <div class="card-mini"><i class="fa-solid fa-clock"></i> <div><span>Attente</span><p>12/15</p></div></div>
-                    </div>
-                </div>
-
-                <div class="double-grid">
-                    <div class="card glass">
-                        <h3>Activité en direct</h3>
-                        <div class="log-item"><div class="dot green"></div><p>HIRAM Web a payé 4,000 <span>14:20</span></p></div>
-                        <div class="log-item"><div class="dot orange"></div><p>Membre #05 demande prêt <span>Hier</span></p></div>
-                    </div>
-                    <div class="card glass next-gain">
-                        <h3>Prochain Gain</h3>
-                        <div class="user-chip">
-                            <div class="avatar">J</div>
-                            <div><strong>Jean Dupont</strong><p>Reçoit 55,000 FCFA</p></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="members" class="page">
-                <div class="header-main"><h1>Nos <span>15 Membres</span></h1></div>
-                <div class="members-grid" id="members-list">
-                    </div>
-            </section>
-
-            <section id="pay" class="page">
-                <div class="header-main"><h1>Mode de dépôt</h1></div>
-                <div class="pay-grid">
-                    <div class="pay-btn mtn" onclick="initiatePay('MTN')">
-                        <i class="fa-solid fa-phone"></i>
-                        <h2>MTN Money</h2>
-                        <p>Composer <b>*104#</b></p>
-                    </div>
-                    <div class="pay-btn airtel" onclick="initiatePay('Airtel')">
-                        <i class="fa-solid fa-mobile-screen"></i>
-                        <h2>Airtel Money</h2>
-                        <p>Composer <b>*128#</b></p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="loan" class="page">
-                <div class="header-main"><h1>Besoin d'aide ?</h1></div>
-                <div class="card glass loan-container">
-                    <h2>Demander une avance</h2>
-                    <textarea id="loanTxt" placeholder="Expliquez votre situation..."></textarea>
-                    <button class="btn-main" onclick="sendLoan()">Envoyer la demande</button>
-                </div>
-            </section>
-
-        </main>
+    <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="nom" placeholder="Nom complet" required>
     </div>
 
-    <script src="script.js"></script>
+    <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-phone"></i>
+        <input type="tel" name="tel" placeholder="Mobile Money" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="pass" placeholder="Mot de passe" required>
+    </div>
+
+    <input type="hidden" name="redirect" value="index1.html">
+
+    <button type="submit" class="btn-submit">
+        <span>S'inscrire</span>
+        <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <p class="footer-text">Déjà membre ? <a href="index1.html">Se connecter</a></p>
+</form>
+<div id="success-message" style="display: none; text-align: center; color: white; padding: 20px;">
+    <i class="fas fa-clock" style="font-size: 3rem; color: #00d2ff; margin-bottom: 20px;"></i>
+    <h2 class="accent">Demande reçue !</h2>
+    <p>Merci de patienter 1J pour vous mettre dans un groupe. Une note vous sera envoyée sur votre email.</p>
+</div>
+</div>
+
+ <script src="script1.js"></script>
 </body>
+
+
 </html>
+

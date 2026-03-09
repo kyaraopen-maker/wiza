@@ -1,0 +1,162 @@
+    :root {
+    --primary: #00d2ff;
+    --secondary: #928dab;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0c29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* Animation d'arrière-plan */
+.background-animation {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #24243e 0%, #0f0c29 100%);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.glass-form {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.accent {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Style des champs de saisie */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    color: white;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+/* Bouton stylé */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+
+.footer-text {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.footer-text a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+
+/* Optimisation pour Mobile */
+@media (max-width: 480px) {
+    .glass-form {
+        padding: 25px 20px;  
+        margin: 10px;       
+        border-radius: 18px;
+    }
+
+    h2 {
+        font-size: 1.6rem;  
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .input-group input {
+        padding: 12px 12px 12px 40px;  
+    }
+
+    .btn-submit {
+        padding: 12px;
+    }
+}
+
+/* Gestion des écrans très petits ou en mode paysage */
+@media (max-height: 600px) {
+    body {
+        align-items: flex-start; 
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+}

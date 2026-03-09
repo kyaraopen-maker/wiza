@@ -15,6 +15,7 @@ const listMembres = [
     { id: 14, nom: "Rita Mavoungou", st: "En attente" },
     { id: 15, nom: "Membre Final", st: "En attente" }
 ];
+// 1122456789087645323456787665567898765432 -D- 23455476543234578999899998765432467889 
 
 function showSection(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -22,6 +23,7 @@ function showSection(id) {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
+//12345678909876543212345678901234567655554 -I- 123456789098765432123456789098765431234 
 
 function loadMembres() {
     const box = document.getElementById('members-list');
@@ -33,14 +35,27 @@ function loadMembres() {
         </div>
     `).join('');
 }
+//1234567890°098765432345677567976567890 -V- 3456789876789098765432123456789098765431234567
+ 
+function initiatePay(operator) {
+    let ussdCode = "";
 
-function initiatePay(op) {
-    const code = op === 'MTN' ? '*104#' : '*128#';
-    alert(`WIZA SECURE\nAction: Composez ${code} pour vos 4 000 FCFA.`);
+    if (operator === 'MTN') {
+        // Encode le # par %23 pour que le téléphone l'affiche bien
+        ussdCode = "*105*1%23"; 
+    } else if (operator === 'Airtel') {
+        ussdCode = "*128%23";
+    }
+
+    if (ussdCode !== "") {
+        // Ouvre le composeur d'appel avec le code
+        window.location.href = "tel:" + ussdCode;
+    }
 }
+//123456712345687654 -I- 1234560123456798765 -N- 1234567898765432n-E- 123456789009876541234567
 
 function sendLoan() {
-    alert("Demande envoyée ! Enki analyse votre dossier.");
+    alert("Demande envoyée ! Patienter pour une confirmation sur votre email.");
 }
 
 window.onload = loadMembres;
