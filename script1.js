@@ -1,12 +1,16 @@
 const form = document.getElementById('contact-form');
-const successMessage = document.getElementById('success-message');
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Empêche le rafraîchissement immédiat
+    e.preventDefault(); // Empêche le rechargement immédiat pour envoyer les données
 
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
+
+    // On change le texte du bouton pour faire patienter l'utilisateur
+    const btn = form.querySelector('.btn-submit span');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "Envoi...";
 
     fetch('https://api.web3forms.com/submit', {
             method: 'POST',
@@ -18,15 +22,18 @@ form.addEventListener('submit', function(e) {
         })
         .then(async (response) => {
             if (response.status == 200) {
-                // 1. On cache le formulaire
-                form.style.display = "none";
-                // 2. On affiche ton message personnalisé
-                successMessage.style.display = "block";
-                // 3. On vide les champs pour la prochaine fois
-                form.reset();
+                // L'ALERTE QUE TU VOULAIS
+                alert("Demande reçue ! Merci de patienter 1J pour vous mettre dans un groupe. Une note vous sera envoyée sur votre email.");
+                
+                // Rafraîchit la page pour vider les champs et tout remettre à zéro
+                window.location.reload(); 
+            } else {
+                alert("Erreur lors de l'envoi. Réessayez.");
+                btn.innerHTML = originalText;
             }
         })
         .catch(error => {
-            alert("Erreur de connexion.");
+            alert("Vérifiez votre connexion internet.");
+            btn.innerHTML = originalText;
         });
 });
